@@ -96,6 +96,51 @@ public LicenseValidationInfoEx ImportLicense(string path)
    - It then uses a static Salt and a Marker
 	 - SALT: `new byte[] { 251, 51, 164, 251, 59, 131, 182, 228 };`
 	 - MARKER: `new byte[] { 89, 37, 32, 212, 143, 199, 216, 38, 176, 236, 164, 32, 184, 202, 182 };`
+   - Decryption code (inside `AmsiScanner.Common.dll`):
+```csharp
+public static byte[] Decrypt(byte[] ciphertextbytes, string password = "5e16e53245c147a8acd1b3e38de0135d")
+{
+	Rfc2898DeriveBytes rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, Utility.SALT);
+	byte[] array6;
+	using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+	{
+		aesCryptoServiceProvider.KeySize = 256;
+		aesCryptoServiceProvider.BlockSize = 128;
+		aesCryptoServiceProvider.Key = rfc2898DeriveBytes.GetBytes(aesCryptoServiceProvider.KeySize / 8);
+		byte[] array = new byte[16];
+		Array.Copy(ciphertextbytes, array, array.Length);
+		aesCryptoServiceProvider.IV = array;
+		ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateDecryptor(aesCryptoServiceProvider.Key, aesCryptoServiceProvider.IV);
+		using (MemoryStream memoryStream = new MemoryStream())
+		{
+			using (MemoryStream memoryStream2 = new MemoryStream(ciphertextbytes))
+			{
+				byte[] array2 = new byte[4096];
+				memoryStream2.Read(array2, 0, 16);
+				using (CryptoStream cryptoStream = new CryptoStream(memoryStream2, cryptoTransform, CryptoStreamMode.Read))
+				{
+					int num;
+					while ((num = cryptoStream.Read(array2, 0, array2.Length)) > 0)
+					{
+						memoryStream.Write(array2, 0, num);
+					}
+				}
+				byte[] array3 = memoryStream.ToArray();
+				byte[] array4 = new byte[Utility.MARKER.Length];
+				Array.Copy(array3, array4, array4.Length);
+				if (!array4.SequenceEqual(Utility.MARKER))
+				{
+					throw new Exception("File is not using a supported encryption format.");
+				}
+				byte[] array5 = new byte[array3.Length - array4.Length];
+				Array.Copy(array3, array4.Length, array5, 0, array5.Length);
+				array6 = array5;
+			}
+		}
+	}
+	return array6;
+}
+```
    - We can then get the License model from the `ImportLicense` function, as you can read it's actually `LicenseValidationInfoEx` 
    - Now we have all we need to craft the actual license.
    - For simplicity, here is a demo code for that model:
@@ -120,6 +165,7 @@ LicenseValidationInfoEx licenseValidationInfoEx = new LicenseValidationInfoEx()
    - `<licenseKeyEncrypted>` needs to be the Base64 URL Encoded value of the license key, which is split in two values:
 	 - `byte[] _data;` 
 	 - `byte[] _signature`
+     - It then creates a new array of those two values togheter
    - It gets parsed this way:
 ```csharp
 public static LicenseKey Parse(string serialized)
