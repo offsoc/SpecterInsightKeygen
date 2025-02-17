@@ -2,6 +2,21 @@
 
 ## Setup
 
+
+#### Be safe
+
+- Edit the hosts file with this values to avoid unnecessary lookups:
+```
+127.0.0.1 www.practicalsecurityanalytics.com
+127.0.0.1 www.practicalsecurityanalytics.com.
+127.0.0.1 practicalsecurityanalytics.com
+127.0.0.1 practicalsecurityanalytics.com.
+::1 www.practicalsecurityanalytics.com
+::1 www.practicalsecurityanalytics.com.
+::1 practicalsecurityanalytics.com
+::1 practicalsecurityanalytics.com.
+```
+
 #### Certificate Generation for Keygen
 
  - Generate EDCSA Key
