@@ -47,6 +47,10 @@
 __NOTE__: To setup the software correctly, just follow the official setup guidelines [here](https://practicalsecurityanalytics.com/specterinsight/tutorials/installation/)
 
 
+#### Screenshot
+
+![img](Screenshot.png)
+
 ## Write Up
 
 - Download the software from original source (must register).
