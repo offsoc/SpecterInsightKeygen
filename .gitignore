@@ -1,0 +1,62 @@
+# Ignore build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]ebugTest/
+[Dd]istTest/
+[Dd]ebug-vs2017/
+[Dd]ebug-vs2019/
+[Dd]ebug-vs2022/
+[Dd]ist-vs2017/
+[Dd]ist-vs2019/
+[Dd]ist-vs2022/
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer Logs
+*.cab
+
+# Tye and Docker files
+.tye/
+
+# Temporary ASP.NET files
+*.vspscc
+.vs2019/
+.vs2017/
+.vs/
+
+# VS for Mac
+.vscode/
+
+# User-specific files for Rider
+.idea/
+
+# JetBrains Rider
+.idea/
+
+# Caches
+*.log
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Package directories
+/packages/
+
+# Project-specific files
+*.csproj.user
+*.suo
+*.sln
