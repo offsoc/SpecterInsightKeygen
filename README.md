@@ -27,7 +27,7 @@
    - `openssl x509 -req -in ecdsa_request.csr -signkey .\cert.key -out cert.pem -days 3650`
  - Export as P12 Certificate
 	- `openssl pkcs12 -export -out cert.p12 -inkey .\cert.key -in .\cert.pem -name "SpecterInsight Keygen Cert"`
-	- NOTE: For the keygen, you can password protect it, but for replacemente, it MUST be without password.
+	- NOTE: For the keygen, you can password protect it, but for the replacement it __MUST__ be without password, as the software expects it to be without password.
 
 #### Replace Certificate in Server and Client
 
@@ -41,7 +41,7 @@
 
  - Execute `SpecterInsightKeygen.exe`
  - Follow the guidelines shown by the software.
-	- In few words: just put the saved "license.json" file into `<base_path>/settings/` directory.
+	- In few words: just put the saved `license.json` file into `<base_path>/settings/` directory.
  - Enjoy!
 
 ## Build
