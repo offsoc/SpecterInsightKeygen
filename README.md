@@ -27,7 +27,7 @@
    - `openssl x509 -req -in ecdsa_request.csr -signkey .\cert.key -out cert.pem -days 3650`
  - Export as P12 Certificate
 	- `openssl pkcs12 -export -out cert.p12 -inkey .\cert.key -in .\cert.pem -name "SpecterInsight Keygen Cert"`
-	- NOTE: For the keygen, you can password protect it, but for the replacement it __MUST__ be without password, as the software expects it to be without password.
+	- __NOTE__: For the keygen, you can password protect it, but for the replacement it __MUST__ be without password, as the software expects it to be without password.
 
 #### Replace Certificate in Server and Client
 
