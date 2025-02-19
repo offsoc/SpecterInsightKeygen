@@ -50,7 +50,7 @@ public partial class MainWindow : FluentWindow
                     Expires = DateTime.Now.AddYears(100),
                     License = "valid",
                     ItemId = "1094",
-                    ItemName = "CyberArsenal",
+                    ItemName = "Offsec",
                     LicenseLimit = "999999",
                     PaymentId = 1234,
                     PriceId = "1234567890",

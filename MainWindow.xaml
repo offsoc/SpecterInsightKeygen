@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Main" MinHeight="600" MinWidth="800" MaxHeight="600" MaxWidth="800">
     <StackPanel Background="#1e1e1e">
-        <ui:TitleBar Title="SpecterInsight Keygen" Foreground="White" ShowClose="True" ShowHelp="False" ShowMaximize="False" ShowMinimize="False" />
+        <ui:TitleBar Title="SpecterInsight C2 Keygen" Foreground="White" ShowClose="True" ShowHelp="False" ShowMaximize="False" ShowMinimize="False" />
         <Grid Margin="5">
             <Border BorderThickness="0,0,0,2"
                     BorderBrush="CadetBlue">
@@ -180,14 +180,11 @@
            HorizontalAlignment="Stretch"
            TextAlignment="Center"
            VerticalAlignment="Center">
-            <Run Foreground="White" Text="Made by Pwn3rzs / CybersArsenal - " />
-            <Hyperlink Foreground="White" NavigateUri="https://t.me/Pwn3rzs" RequestNavigate="Hyperlink_RequestNavigate">
-                <Run Text="https://t.me/Pwn3rzs"/>
+            <Run Foreground="White" Text="Made by Offensive Security - " />
+            <Hyperlink Foreground="White" NavigateUri="https://offsec.com" RequestNavigate="Hyperlink_RequestNavigate">
+                <Run Text="https://offsec.com " />
             </Hyperlink>
             <Run Text=" - " />
-            <Hyperlink Foreground="White" NavigateUri="https://cyberarsenal.org" RequestNavigate="Hyperlink_RequestNavigate">
-                <Run Text="https://cyberarsenal.org"/>
-            </Hyperlink>
             </TextBlock>
 
         </Grid>
