@@ -22,7 +22,7 @@
  - Generate EDCSA Key
 	- `openssl ecparam -name prime256v1 -genkey -noout -out cert.key`
  - Generate CSR File
-	- `openssl req -new -key .\cert.key -out ecdsa_request.csr -subj "/C=RU/ST=Russia/L=Moscow/O=Pwn3rzs/OU=CyberArsenal/CN=Pwn3rzs 'nd CyberArsenal"`
+	- `openssl req -new -key .\cert.key -out ecdsa_request.csr -subj "/C=RU/ST=Russia/L=Moscow/O=OffSec/OU=Offensive Security/CN=OffSec 'nd Offensive Security"`
  - Self Sign Certificate
    - `openssl x509 -req -in ecdsa_request.csr -signkey .\cert.key -out cert.pem -days 3650`
  - Export as P12 Certificate
